@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <title>Electrical Employment Application</title>
+</head>
+  <style>
+    /* Global styles */
+
+/*Menu*/
+
+    /* styles.css */
+   main {
+    flex: 1; /* Allow the main content to grow to fill the available space */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #555555; /* McDonald's yellow */
+    color: white; /* Text color set to black for better readability */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+header {
+    background-color: #BC0A0F;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between; /* Keep items spaced at the edges */
+    align-items: center;
+    position: sticky; /* Make the header sticky */
+    top: 0; /* Stay at the top of the page */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Stay on top of other content */
+}
+
+.logo {
+    position: relative; /* Changed from absolute to relative */
+    z-index: 10; /* Ensure the logo is layered correctly */
+}
+
+.logo img {
+    width: 50px; /* Size of the logo */
+    cursor: pointer;
+    display: flex; /* Flex display to help with alignment */
+    align-items: center; /* Center vertically */
+}
+
+.menu {
+    display: flex;
+    width: 100%; /* Ensures menu uses full header width */
+    justify-content: center; /* Centers menu items */
+    position: relative; /* Aligns the menu within the header */
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Center the items in the menu */
+    align-items: center;
+    width: 100%;
+}
+
+.menu ul li {
+    color: #64ffda;
+    position: relative;
+    display: inline-block;
+    align-items: center;
+}
+
+.menu ul li a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    color: #ffcc00;
+    display: block;
+    padding: 5px 20px;
+}
+
+.menu ul li ul {
+    display: none;
+    position: absolute;
+    background-color: #282828;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    min-width: 150px;
+    z-index: 1;
+
+}
+
+.menu ul li:hover ul {
+    display: block;
+}
+
+.menu ul li ul li {
+    display: block;
+}
+
+.menu ul li a:hover, .menu ul li ul li a:hover {
+    background-color: #c8102e; /* Highlight links with McDonald's yellow on hover */
+    color: #000; /* Black text for contrast */
+    text-decoration: none; /* Remove underline to keep it clean */
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    width: 30px;
+    height: 25px;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: white;
+    border-radius: 3px;
+}
+
+.menu ul.active {
+    display: block;
+}
+
+.menu ul li a:hover, .menu ul li ul li a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+
+.career-description {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color:  #767676;
+    color: solid white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: solid white;
+    font-size: 16px;  /* Sets the font size to 16 pixels */
+}
+
+p {
+    color: white;
+    line-height: 1.6;
+}
+
+/* Container styles */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Heading styles */
+h2 {
+  text-align: center;
+  margin-top: 20px;
+  color: white;
+}
+
+/* Form styles */
+form {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #767676;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Fieldset styles */
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Label styles */
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Input styles */
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="date"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+/* Submit button styles */
+input[type="submit"] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Checkbox and radio button styles */
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Checkbox and radio button label styles */
+input[type="checkbox"]+label,
+input[type="radio"]+label {
+  display: inline;
+  margin-right: 15px;
+}
+
+/* Description box styles */
+.description-box {
+  margin-top: 20px;
+}
+
+.description-box textarea {
+  width: 100%;
+  height: 200px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical;
+  background-color: #20232a;
+  color: white
+}
+
+/* Reference styles */
+.reference {
+  margin-bottom: 20px;
+
+}
+
+
+
+
+.required {
+    color: red;
+}
+
+input:invalid, textarea:invalid {
+    border: 2px solid red;
+}
+
+input:valid, textarea:valid {
+    border: 2px solid green;
+}
+
+
+footer {
+background-color: grey; /* Dark background for contrast */
+    color: white;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    flex-shrink: 0; /* Prevent the footer from shrinking */
+    text-align: center; /* Center all text inside the footer */
+}
+
+.footer-container {
+    background-color: grey; /* Red color matching the header */
+    display: flex;
+    justify-content: center; /* Center the footer contents horizontally */
+    align-items: center; /* Align the footer contents vertically */
+    text-align: center; /* Ensure text within each section is centered */
+    padding: 20px 0; /* Add some padding above and below the footer content */
+    flex-wrap: wrap; /* Allow footer items to wrap on smaller screens */
+    flex-direction: column; /* Stack child elements vertically */
+    align-items: center; /* Align items centrally */
+    justify-content: center; /* Center items horizontally */
+}
+
+.license-section, .contact-info {
+    margin: 10px 0; /* Add vertical margin */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center-align content */
+
+}
+
+.license-section h4, .contact-info h4, .social-media h4 {
+    color: #ffcc00; /* Gold color for headers */
+    margin-bottom: 10px;
+}
+
+.license-group h5 {
+    margin-top: 0;
+    color: #FFA500; /* Orange color for sub-headers */
+}
+
+.license-group p {
+    font-size: 12px; /* Smaller font for compact design */
+    margin: 3px 0;
+}
+
+.social-media a {
+    display: inline-block; /* Align icons in line */
+    margin: 0 5px; /* Space between icons */
+}
+
+.social-media a img {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
+
+.social-media {
+    display: flex; /* Use flexbox for horizontal alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    flex-wrap: nowrap; /* Prevent wrapping to a new line */
+}
+
+
+
+
+
+@media screen and (max-width: 1024px) {
+    .text-overlay h1, .text-overlay h2, .text-overlay h3, .text-overlay p {
+        font-size: calc(16px + 0.9vw); /* Adjusted base font size for smaller devices */
+    }
+    header, .menu ul {
+        flex-direction: column;
+    }
+
+    .menu ul li {
+        width: 100%; 
+    }
+
+    .menu ul li a {
+        padding: 10px;
+    }
+    .menu ul li {
+        text-align: center; /* Center align menu items */
+    }
+}
+
+
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .text-overlay h1, .text-overlay h2, .text-overlay h3, .text-overlay p {
+        font-size: calc(14px + 0.8vw); /* Further reduced font size for tablets */
+    }
+
+      .caption-content {
+        padding: 50px; /* Adjust padding for smaller screens */
+      }
+      
+      .box {
+        width: calc(33.33% - 40px);
+        margin: 20px;
+      }
+      .footer-container {
+        flex-direction: column;
+      }
+      
+    }
+
+    
+    @media screen and (max-width: 768px) {
+      .caption-content {
+        padding: 30px; /* Adjust padding for even smaller screens */
+      }
+
+      #logo-img {
+        max-width: 150px; /* Adjust logo size */
+      }
+      .container2 {
+        flex-wrap: wrap;
+      }
+      .box {
+        margin: 10px;
+        width: calc(50% - 20px);
+      }
+
+    .menu ul {
+        display: none;
+        position: absolute;
+        background-color: #c8102e;
+        right: 0;
+        left: 0;
+        top: 50px;
+        width: 100%;
+        flex-direction: column;
+    }
+    .menu ul li {
+        display: block;
+        text-align: center;
+    }
+    .menu ul li a {
+        padding: 12px 20px;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+    header {
+        justify-content: space-between; /* Ensures the logo and menu toggle are on opposite ends */
+    }
+    .logo {
+        flex: 1 0 auto; /* Allows logo to grow as needed but not shrink */
+    }
+    .menu ul.active {
+        display: flex; /* Changed from block to flex to handle vertical alignment */
+        flex-direction: column; /* Ensures menu items are stacked vertically */
+    }
+    .menu-toggle {
+                display: flex;
+    }
+
+}
+
+
+    @media (max-width: 600px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    footer p {
+        margin: 5px 0;
+    }
+
+ .copyright {
+        text-align: center; /* Center the text */
+        width: 100%; /* Ensure it spans the full width */
+        margin-top: 20px; /* Optional: Add space above the text */
+    }
+
+
+
+@media screen and (max-width: 480px) {
+    .text-overlay h1, .text-overlay h2, .text-overlay h3, .text-overlay p {
+        font-size: calc(12px + 0.5vw); /* Smaller font size for mobile phones */
+    }
+    .box {
+        width: calc(100% - 20px);
+    }
+    header {
+        flex-direction: row; /* Ensures items are in a row for better alignment */
+        justify-content: space-between; /* Spaces items optimally */
+        padding: 10px 20px; /* Adds padding for aesthetics */
+    }
+    header, .menu ul {
+        flex-direction: column;
+    }
+}
+
+
+@media screen and (max-width: 360px) {
+    .text-overlay h1, .text-overlay h2, .text-overlay h3, .text-overlay p {
+        font-size: calc(10px + 2.5vw); /* Even smaller responsive font size for very small screens */
+    }
+}
+
+
+
+
+
+
+
+/* You can adjust the max-width values according to your design requirements */
+
+
+  </style>
+</head>
+<body>
+
+
+   <header>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="menu">
+            <ul>
+                <center>
+                <li class="logo"><a href="home.html"><img src="electrical3.png" alt="Logo"></a></li>
+            </center>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li>
+                    <a href="careers.html">Careers</a>
+                    <ul>
+                        <li><a href="career_application.html">Career Application</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li>
+                    <a href="services.html">Services</a>
+                    <ul>
+                    <a href="#industrial">COMMERCIAL</a>
+                    <a href="#commercial">INDUSTRIAL</a>
+                    <a href="#residential">RESIDENTIAL</a>  
+                    </ul>
+                </li>
+                <li><a href="service_areas.html">Service Areas</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+  
+ <div class="career-description">
+  <center>
+        <h1 style="font-family: 'Sofia', cursive; font-size: 30px; text-align: center;">Welcome to Principal Electric Corp!</h1>
+</center>
+        <p>At Principal Electric Corp, where innovation sparks, and careers ignite! We are more than just a company; we are a dynamic community of forward-thinkers, problem-solvers, and pioneers in the realm of electrical engineering.</p>
+        
+        <p>As a leading private company in the electrical industry, we pride ourselves on our commitment to excellence, cutting-edge technology, and a culture that fosters growth and collaboration. Here, you'll find a stimulating environment where your ideas are not only welcomed but encouraged, and where your contributions make a tangible impact on the world around us.</p>
+        
+        <p>Joining Principal Electric Corp means joining a team dedicated to shaping the future of energy solutions. Whether you're an experienced professional or just starting your career, we offer unparalleled opportunities for personal and professional development. From hands-on training to mentorship programs, we invest in our employees to ensure they have the skills and support they need to succeed.</p>
+        
+        <p>But it's not just about the work. At Principal Electric Corp, we believe in work-life balance and creating a culture that values wellness and diversity. From flexible work arrangements to employee wellness programs, we prioritize the well-being of our team members, because we know that happy and healthy employees are the key to our success.</p>
+        
+        <p>So, if you're ready to join a company where innovation thrives, opportunities abound, and your career can truly electrify, then look no further than Principal Electric Corp. Come be a part of something remarkable and let your career shine with us.</p>
+    </div>
+
+
+
+
+<div class="container">
+    <h2>Electrical Employment Application</h2>
+    <form id="employmentForm">
+      <!-- Personal Information -->
+            <h2>Personal Information</h2>
+      
+      <form id="employmentForm">
+      <label for="position">Position Applying For<span class="required">*</span></label>
+      <input type="text" id="position" name="position" required>
+      
+      <label for="firstName">First Name<span class="required">*</span></label>
+      <input type="text" id="firstName" name="firstName" required>
+
+      <label for="lastName">Last Name<span class="required">*</span></label>
+      <input type="text" id="lastName" name="lastName" required>
+
+      <label for="address">Address<span class="required">*</span></label>
+      <input type="text" id="address" name="address" required>
+
+      <label for="city">City<span class="required">*</span></label>
+      <input type="text" id="city" name="city" required>
+
+      <label for="state">State<span class="required">*</span></label>
+      <input type="text" id="state" name="state" required>
+
+      <label for="zip">Zip<span class="required">*</span></label>
+      <input type="text" id="zip" name="zip" required>
+
+      <label for="homePhone">Home Phone<span class="required">*</span></label>
+      <input type="tel" id="homePhone" name="homePhone" required>
+
+      <label for="ssn">SS#<span class="required">*</span></label>
+      <input type="text" id="ssn" name="ssn" required>
+
+      <label for="cellPhone">Cell Phone Number<span class="required">*</span></label>
+      <input type="tel" id="cellPhone" name="cellPhone" required>
+
+      <label for="email">Email Address<span class="required">*</span></label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="hearAbout">How did you hear about our company?<span class="required">*</span></label>
+      <input type="text" id="hearAbout" name="hearAbout" required>
+
+      <label for="educationType">Education:<span class="required">*</span></label>
+      <select id="educationType" name="educationType" required>
+        <option value="">Select Education Type</option>
+        <option value="High School">High School</option>
+        <option value="College/University">College/University</option>
+        <option value="Business or Trade School">Business or Trade School</option>
+        <option value="Professional School">Professional School</option>
+      </select>
+
+      <div id="educationDetails">
+        <label for="schoolName">Name of School:<span class="required">*</span></label>
+        <input type="text" id="schoolName" name="schoolName" required>
+
+        <label for="schoolLocation">Location:<span class="required">*</span></label>
+        <input type="text" id="schoolLocation" name="schoolLocation" required>
+
+        <label for="yearsCompleted">Years Completed:<span class="required">*</span></label>
+        <input type="number" id="yearsCompleted" name="yearsCompleted" required>
+
+        <label for="majorDegree">Major & Degree:<span class="required">*</span></label>
+        <input type="text" id="majorDegree" name="majorDegree" required>
+      </div>
+
+      <label>Citizenship/Work Status:<span class="required">*</span></label>
+      <input type="radio" id="usCitizen" name="citizenshipStatus" value="US Citizen">
+      <label for="usCitizen">US Citizen</label>
+      <input type="radio" id="greenCard" name="citizenshipStatus" value="Green Card Holder">
+      <label for="greenCard">Green Card Holder</label>
+      <input type="radio" id="usWorkPermit" name="citizenshipStatus" value="US Work Permit/Visa">
+      <label for="usWorkPermit">US Work Permit/Visa</label>
+      <input type="radio" id="canadianCitizen" name="citizenshipStatus" value="Canadian Citizen">
+      <label for="canadianCitizen">Canadian Citizen</label>
+      <input type="radio" id="canadianWorkPermit" name="citizenshipStatus" value="Canadian Work Permit/Visa">
+      <label for="canadianWorkPermit">Canadian Work Permit/Visa</label>
+      <input type="radio" id="currentEmployer" name="citizenshipStatus" value="Current Employer">
+      <label for="currentEmployer">Current Employer</label>
+
+      <label for="workExperience">Years of Work Experience Directly related to the position you are applying
+        for:</label>
+      <input type="number" id="workExperience" name="workExperience" required>
+
+      <label>Employment Type Desired:</label>
+      <input type="radio" id="fullTime" name="employmentType" value="Full Time">
+      <label for="fullTime">Full Time</label>
+      <input type="radio" id="partTime" name="employmentType" value="Part-Time">
+      <label for="partTime">Part-Time</label>
+
+      <label for="desiredCompensation">Desired Compensation:</label>
+      <input type="number" id="desiredCompensation" name="desiredCompensation" required>
+      <input type="radio" id="hourly" name="compensationType" value="Hourly">
+      <label for="hourly">Hourly</label>
+      <input type="radio" id="annual" name="compensationType" value="Annual">
+      <label for="annual">Annual</label>
+
+      <label for="reasonForApplying">Reason for Applying</label>
+      <textarea id="reasonForApplying" name="reasonForApplying" required></textarea>
+
+      <label for="startDate">When are you available to start work?</label>
+      <input type="date" id="startDate" name="startDate" required>
+
+      <label for="educationDescription">Education Description:<span class="required">*</span></label>
+      <textarea id="educationDescription" name="educationDescription" rows="4" required></textarea>
+
+      <label for="militaryService">Military Service:</label>
+      <input type="radio" id="militaryYes" name="militaryService" value="Yes">
+      <label for="militaryYes">Yes</label>
+      <input type="radio" id="militaryNo" name="militaryService" value="No">
+      <label for="militaryNo">No</label>
+
+      <label for="branch">Branch:<span class="required">*</span></label>
+      <input type="text" id="branch" name="branch"required><br><br>
+
+      <label for="nationalGuard">Are you currently a member of the national guard or reserves?</label>
+      <input type="radio" id="nationalGuardYes" name="nationalGuard" value="Yes">
+      <label for="nationalGuardYes">Yes</label>
+      <input type="radio" id="nationalGuardNo" name="nationalGuard" value="No">
+      <label for="nationalGuardNo">No</label>
+
+      <label for="specialtyDescription">Military Occupation Specialist:<span class="required">*</span></label>
+      <textarea id="specialtyDescription" name="specialtyDescription" rows="4" required> </textarea>
+    </form>
+  </div>
+
+  <div class="container">
+    <h2>Work Experience</h2>
+    <form id="workExperienceForm">
+      <!-- Your existing work experience fields here -->
+      <div id="workExperience1">
+        <div id="workExperienceContainer">
+      <!-- Initially, no work experience fields -->
+    </div>
+    <button type="button" id="addExperienceBtn">Add Work Experience</button>
+    </form>
+  </div>
+
+
+  <!-- Electrical Industry Skills Form -->
+  <div class="container">
+    <h2>Electrical Industry Skills</h2>
+    <form id="skillsForm">
+      <!-- Your existing skills form fields here -->
+       <fieldset>
+    <!-- Systems -->
+    <h2>What types of systems have you worked with?</h2>
+    <label><input type="checkbox" name="systems" value="Access Control">Access Control</label>
+    <label><input type="checkbox" name="systems" value="Building Management">Building Management</label>
+    <label><input type="checkbox" name="systems" value="CCTV">CCTV</label>
+    <label><input type="checkbox" name="systems" value="Climate Control">Climate Control</label>
+    <label><input type="checkbox" name="systems" value="Data">Data</label>
+    <label><input type="checkbox" name="systems" value="Elevators">Elevators</label>
+    <label><input type="checkbox" name="systems" value="Emergency Critical Load (computer) Distribution Systems">Emergency Critical Load (computer) Distribution Systems</label>
+    <label><input type="checkbox" name="systems" value="Fire Systems">Fire Systems</label>
+    <label><input type="checkbox" name="systems" value="High Voltage">High Voltage</label>
+    <label><input type="checkbox" name="systems" value="Hydraulic Systems">Hydraulic Systems</label>
+    <label><input type="checkbox" name="systems" value="Low Voltage">Low Voltage</label>
+    <label><input type="checkbox" name="systems" value="Manufacturing Equipment">Manufacturing Equipment</label>
+    <label><input type="checkbox" name="systems" value="Mechanical Systems">Mechanical Systems</label>
+    <label><input type="checkbox" name="systems" value="Medium Voltage">Medium Voltage</label>
+    <label><input type="checkbox" name="systems" value="Overhead Cranes">Overhead Cranes</label>
+    <label><input type="checkbox" name="systems" value="Pneumatic Systems">Pneumatic Systems</label>
+    <label><input type="checkbox" name="systems" value="Power Distribution">Power Distribution</label>
+    <label><input type="checkbox" name="systems" value="SWITCH GEAR">SWITCH GEAR</label>
+    <label><input type="checkbox" name="systems" value="Generators-ATS">Generators-ATS</label>
+    <label><input type="checkbox" name="systems" value="High voltage splicing">High voltage splicing</label>
+    <label><input type="checkbox" name="systems" value="Radio-RF">Radio-RF</label>
+    <label><input type="checkbox" name="systems" value="Security Systems">Security Systems</label>
+    <label><input type="checkbox" name="systems" value="Solid State">Solid State</label>
+    <label><input type="checkbox" name="systems" value="Street & Highway Lighting">Street & Highway Lighting</label>
+    <label><input type="checkbox" name="systems" value="Traffic Signaling">Traffic Signaling</label>
+    <label><input type="checkbox" name="systems" value="Transistorized Subsystems">Transistorized Subsystems</label>
+    <label><input type="checkbox" name="systems" value="Voice/Telecom">Voice/Telecom</label>
+    
+    <!-- Wiring -->
+    <h2>What types of wiring have you worked with? (Select all that applies)</h2>
+    <!-- Wiring Checkboxes -->
+    <label><input type="checkbox" name="wiring" value="110">110</label><br>
+    <label><input type="checkbox" name="wiring" value="220">220</label><br>
+    <label><input type="checkbox" name="wiring" value="4160">4160</label><br>
+    <label><input type="checkbox" name="wiring" value="480">480</label><br>
+    <label><input type="checkbox" name="wiring" value="CAT5">CAT5</label><br>
+    <label><input type="checkbox" name="wiring" value="Coax">Coax</label><br>
+    <label><input type="checkbox" name="wiring" value="Fiber Optic">Fiber Optic</label><br>
+    <label><input type="checkbox" name="wiring" value="Phone">Phone</label><br>
+
+    <!-- Specific Parts, accessories, or fixtures -->
+    <h2>What Specific Parts, accessories, or fixtures have you worked with? (Select all that apply)</h2>
+    <!-- Parts Checkboxes -->
+    <label><input type="checkbox" name="part" value="3-Way Switches">3-Way Switches</label><br>
+    <label><input type="checkbox" name="part" value="AC">AC</label><br>
+    <label><input type="checkbox" name="part" value="Attic Fans">Attic Fans</label><br>
+    <label><input type="checkbox" name="part" value="Circuit Breaker Box">Circuit Breaker Box</label><br>
+    <label><input type="checkbox" name="part" value="Conduit Pipe">Conduit Pipe</label><br>
+    <label><input type="checkbox" name="part" value="Conduit Tubing">Conduit Tubing</label><br>
+    <label><input type="checkbox" name="part" value="Control Panel">Control Panel</label><br>
+    <label><input type="checkbox" name="part" value="DC">DC</label><br>
+    <label><input type="checkbox" name="part" value="Dimmer Switches">Dimmer Switches</label><br>
+    <label><input type="checkbox" name="part" value="Electric Meter">Electric Meter</label><br>
+    <label><input type="checkbox" name="part" value="Electrical Switchgear Assemblies">Electrical Switchgear Assemblies</label><br>
+    <label><input type="checkbox" name="part" value="Fluorescent Lighting">Fluorescent Lighting</label><br>
+    <label><input type="checkbox" name="part" value="Fuse Box">Fuse Box</label><br>
+    <label><input type="checkbox" name="part" value="Fuses">Fuses</label><br>
+    <label><input type="checkbox" name="part" value="Generators">Generators</label><br>
+    <label><input type="checkbox" name="part" value="Halogen Lighting">Halogen Lighting</label><br>
+    <label><input type="checkbox" name="part" value="Intercoms">Intercoms</label><br>
+    <label><input type="checkbox" name="part" value="Lighting Fixtures - Recessed">Lighting Fixtures - Recessed</label><br>
+    <label><input type="checkbox" name="part" value="Lighting Fixtures - Surface Mount">Lighting Fixtures - Surface Mount</label><br>
+    <label><input type="checkbox" name="part" value="Load Centers">Load Centers</label><br>
+    <label><input type="checkbox" name="part" value="Motor Controls">Motor Controls</label><br>
+    <label><input type="checkbox" name="part" value="Motors">Motors</label><br>
+    <label><input type="checkbox" name="part" value="Outlets">Outlets</label><br>
+    <label><input type="checkbox" name="part" value="Panel Boards">Panel Boards</label><br>
+    <label><input type="checkbox" name="part" value="PLC">PLC</label><br>
+    <label><input type="checkbox" name="part" value="Relays">Relays</label><br>
+    <label><input type="checkbox" name="part" value="Service Box">Service Box</label><br>
+    <label><input type="checkbox" name="part" value="Terminals">Terminals</label><br>
+    <label><input type="checkbox" name="part" value="Transformers">Transformers</label><br>
+    <label><input type="checkbox" name="part" value="Variable Frequency Drive">Variable Frequency Drive</label><br>
+    <label><input type="checkbox" name="part" value="Wall Switch">Wall Switch</label><br>
+
+    <!-- Applications -->
+    <h2>What Applications do you have experience with? (Select all that apply)</h2>
+    <!-- Applications Checkboxes -->
+    <label><input type="checkbox" name="applications" value="Aircraft">Aircraft</label><br>
+    <label><input type="checkbox" name="applications" value="Clean Rooms">Clean Rooms</label><br>
+    <label><input type="checkbox" name="applications" value="Commercial">Commercial</label><br>
+    <label><input type="checkbox" name="applications" value="Floating Floor">Floating Floor</label><br>
+    <label><input type="checkbox" name="applications" value="Government Projects">Government Projects</label><br>
+    <label><input type="checkbox" name="applications" value="Hospitals/ Medical">Hospitals/ Medical</label><br>
+    <label><input type="checkbox" name="applications" value="Industrial">Industrial</label><br>
+    <label><input type="checkbox" name="applications" value="Manufacturing">Manufacturing</label><br>
+    <label><input type="checkbox" name="applications" value="Marine">Marine</label><br>
+    <label><input type="checkbox" name="applications" value="Multi-Family">Multi-Family</label><br>
+    <label><input type="checkbox" name="applications" value="Off-Shore">Off-Shore</label><br>
+    <label><input type="checkbox" name="applications" value="Public Utilities">Public Utilities</label><br>
+    <label><input type="checkbox" name="applications" value="Residential">Residential</label><br>
+    <label><input type="checkbox" name="applications" value="Schools">Schools</label><br>
+
+    <!-- Certifications & Licenses -->
+    <h2>Certifications & Licenses</h2>
+    <!-- Certifications Checkboxes -->
+    <label><input type="checkbox" name="certifications" value="Radio Button Apprentice Electrician License">Radio Button Apprentice Electrician License</label><br>
+    <label><input type="checkbox" name="certifications" value="Journeyman Electrician License">Journeyman Electrician License</label><br>
+    <label><input type="checkbox" name="certifications" value="Master Electrician License">Master Electrician License</label><br>
+    <label><input type="checkbox" name="certifications" value="TRADE SCHOOL">TRADE SCHOOL</label><br>
+    <label><input type="checkbox" name="certifications" value="Registered Professional Engineer">Registered Professional Engineer</label><br>
+    <label><input type="checkbox" name="certifications" value="OSHA 10HR">OSHA 10HR</label><br>
+    <label><input type="checkbox" name="certifications" value="OSHA 30HR">OSHA 30HR</label><br>
+    <label><input type="checkbox" name="certifications" value="Other">Other</label><br>
+  </fieldset>
+    </form>
+  </div>
+
+  <div class="container">
+    <!-- Additional Information -->
+    <div class="description-box">
+      <!-- Your existing additional information fields here -->
+      <h2>Additional Information</h2>
+        <textarea name="additional-info" placeholder="Additional Information: Use the space below to summarize any additional information necessary to describe your full qualifications for the specific position for which you are applying. If you have a resume, please include it with this application. IF YOU KNOW OF ANY OTHER QUALIFIED PEOPLE  THAT YOU WOULD LIKE TO REFER PLEASE IONCLUDE THEIR NAME AND CONTACT INFO BELOW."></textarea>
+      </div>
+    </div>
+
+    <!-- References -->
+    <div class="reference">
+      <!-- Your existing reference fields here -->
+      <center>
+      <h3>Reference 1</h3>
+  </center>
+    <label for="name1">Name:<span class="required">*</span></label>
+    <input type="text" id="name1" name="name1" required><br><br>
+    <label for="position1">Position:<span class="required">*</span></label>
+    <input type="text" id="position1" name="position1"required><br><br>
+    <label for="company1">Company:<span class="required">*</span></label>
+    <input type="text" id="company1" name="company1" required><br><br>
+    <label for="telephone1">Telephone Number:<span class="required">*</span></label>
+    <input type="tel" id="telephone1" name="telephone1"required><br><br>
+    <label for="email1">Email Address:<span class="required">*</span></label>
+    <input type="email" id="email1" name="email1"required><br><br>
+  </div>
+  <div class="reference">
+    <center>
+    <h3>Reference 2</h3>
+</center>
+    <label for="name2">Name:<span class="required">*</span></label>
+    <input type="text" id="name2" name="name2" required><br><br>
+    <label for="position2">Position:<span class="required">*</span></label>
+    <input type="text" id="position2" name="position2" required><br><br>
+    <label for="company2">Company:<span class="required">*</span></label>
+    <input type="text" id="company2" name="company2" required><br><br>
+    <label for="telephone2">Telephone Number:<span class="required">*</span></label>
+    <input type="tel" id="telephone2" name="telephone2" required><br><br>
+    <label for="email2">Email Address:<span class="required">*</span></label>
+    <input type="email" id="email2" name="email2">
+  </div>
+  <div class="reference">
+    <center>
+    <h3>Reference 3</h3>
+</center>
+    <label for="name3">Name:<span class="required">*</span></label>
+    <input type="text" id="name3" name="name3">
+    <label for="position3">Position:<span class="required">*</span></label>
+    <input type="text" id="position3" name="position3">
+    <label for="company3">Company:<span class="required">*</span></label>
+    <input type="text" id="company3" name="company3">
+    <label for="telephone3">Telephone Number:<span class="required">*</span></label>
+    <input type="tel" id="telephone3" name="telephone3">
+    <label for="email3">Email Address:<span class="required">*</span></label>
+    <input type="email" id="email3" name="email3">
+  </div>
+  <div class="reference">
+    <center>
+    <h3>Reference 4</h3>
+</center>
+    <label for="name4">Name:<span class="required">*</span></label>
+    <input type="text" id="name4" name="name4">
+    <label for="position4">Position:<span class="required">*</span></label>
+    <input type="text" id="position4" name="position4">
+    <label for="company4">Company:<span class="required">*</span></label>
+    <input type="text" id="company4" name="company4">
+    <label for="telephone4">Telephone Number:<span class="required">*</span></label>
+    <input type="tel" id="telephone4" name="telephone4">
+    <label for="email4">Email Address:<span class="required">*</span></label>
+    <input type="email" id="email4" name="email4">
+    </div>
+
+    <!-- Application Completion -->
+    <div class="application">
+      <!-- Your existing application completion fields here -->
+    <h2>Application Completion</h2>
+    <label for="completed">Did you complete this application yourself?<span class="required">*</span></label><br>
+    <input type="checkbox" id="yes" name="completed" value="yes">
+    <label for="yes">Yes</label><br>
+    <input type="checkbox" id="no" name="completed" value="no">
+    <label for="no">No</label><br>
+    <textarea id="completionDescription" name="completionDescription" rows="4" cols="50" placeholder="If not, who did?"></textarea>
+    </div>
+
+    <!-- Employment Agreement -->
+    <div class="container">
+      <h1>Agreement (Please Read Carefully Before Signing. I certify that all the information on this application is accurate and complete to the best of my knowledge and understand that misleading or false statements will constitute sufficient cause for refusal of hire or termination of my employment. I understand that neither the acceptance of this application nor the subsequent entry into any type of employment relationship with Principal Electric Corp creates and actual or implied contract of employment. I understand that, if I accept employment with Principal Electric Corp, it will be on an at-will basis. This means that either Principal Electric Corp or I have the right to terminate the employment relationship at any time, for any reason, with or without cause. I authorize Principal Electric Corp to investigate information concerning my education, licensing, certifications, driving record, criminal history, employment experiences and all other aspects of my background relevant to my proposed employment. I release Principal Electric Corp and its employees from all liability arising from such investigation. </h1>
+      <form id="employmentForm">
+        <!-- Your existing employment agreement fields here -->
+        <h1>Employment Agreement</h1>
+        <form id="employmentFormSign">
+            <label for="name">Print Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="signature">Signature:</label>
+            <input type="text" id="signature" name="signature" required><br><br>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required><br><br>
+        </form>
+      </form>
+    </div>
+  </div>
+
+  <!-- Submit Button -->
+  <div class="container">
+    <button id="submitAllForms">Submit Form</button>
+  </div>
+
+<footer>
+    <div class="footer-container">
+        <div class="license-section">
+            <h4>Licenses & Certifications</h4>
+            <div class="license-group">
+                <h5>License Company Principal Electric Corp</h5>
+                <p>CA: #167951, CT: #ELC.0203639-E1, NC: #U.34073</p>
+                <p>NJ: #34EI01857600, NY: #13041</p>
+            </div>
+            <div class="license-group">
+                <h5>Local Areas Covered</h5>
+                <p>Inc. Village of Freeport: E-8879, Inc. Village of Hempstead: LIC# 775, Inc. Village of Mineola: LIC# 15787, Orange County: #764</p>
+                <p>Putnam County: 10381, Rockland County: #E-614, Suffolk County: ME-60166</p>
+                <p>Sullivan County: M-522, Town of Hempstead: LIC# 2784, Town of North Hempstead: ME18-220149, Westchester County: 1874</p>
+
+            </div>
+        </div>
+
+        <div class="social-media">
+            <h4>Connect with Us</h4>
+            <a href="https://www.facebook.com/" target="_blank"><img src="Facebook_Logo.png" alt="Facebook"></a>
+            <a href="https://twitter.com/" target="_blank"><img src="X_Logo.png" alt="Twitter"></a>
+            <a href="https://www.instagram.com" target="_blank"><img src="instagram_logo.png" alt="Instagram"></a>
+            <!-- Add other social media links as needed -->
+        </div>
+        <div class="social-media">
+            <h4>Connect with Our Partners</h4>
+            <a href="https://www.osha.gov" target="_blank"><img src="osha_logo.png" alt="OSHA"></a>
+            <a href="https://www.nema.org" target="_blank"><img src="nema.png" alt="NEMA"></a>
+            <a href="https://www.nfpa.org" target="_blank"><img src="nfpa_logo.png" alt="NFPA"></a>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>© 2024 Principal Electric Corp. All rights reserved.</p>
+    </div>
+</footer>
+<script src="script.js"></script>
+
+
+<script>
+
+// Add your JavaScript logic here
+
+// Form submission event listener
+document.getElementById("employmentForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  // Handle form submission here
+  // You can include additional logic to gather form data or perform validation
+
+  const name = document.getElementById("name").value;
+  const signature = document.getElementById("signature").value;
+  const date = document.getElementById("date").value;
+
+  const agreement = {
+    name: name,
+    signature: signature,
+    date: date
+  };
+
+  console.log(agreement); // This is where you can send the agreement data to your server or perform any other actions with it
+});
+
+// Education type change event listener
+document.getElementById("educationType").addEventListener("change", function() {
+  var educationType = this.value;
+  // Show or hide education details based on selected education type
+  if (educationType === "High School" || educationType === "College/University" || educationType === "Business or Trade School" || educationType === "Professional School") {
+    document.getElementById("educationDetails").style.display = "block";
+  } else {
+    document.getElementById("educationDetails").style.display = "none";
+  }
+});
+
+// Function to handle submission of selected parts
+function submitSelection() {
+  var selectedParts = [];
+  var checkboxes = document.querySelectorAll('input[name="part"]:checked');
+  checkboxes.forEach(function(checkbox) {
+    selectedParts.push(checkbox.value);
+  });
+  console.log(selectedParts); // You can use the selectedParts array for further processing
+}
+
+// Event listener for adding work experience fields dynamically
+document.getElementById("addExperienceBtn").addEventListener("click", function() {
+  var container = document.getElementById("workExperienceContainer");
+  var experienceCount = container.querySelectorAll(".workExperience").length + 1;
+  var newExperienceDiv = document.createElement("div");
+  newExperienceDiv.classList.add("workExperience");
+
+  // Construct the HTML for a single set of work experience fields
+  newExperienceDiv.innerHTML = `
+    <h3>Work Experience ${experienceCount}</h3>
+    <!-- Add your work experience fields here -->
+    <label for="employer${experienceCount}">Name of Employer:<span class="required">*</span></label>
+      <input type="text" id="employer${experienceCount}" name="employer${experienceCount}" required><br>
+      
+      <label for="address${experienceCount}">Address:<span class="required">*</span></label>
+      <input type="text" id="address${experienceCount}" name="address${experienceCount}" required><br>
+      
+      <label for="city${experienceCount}">City:<span class="required">*</span></label>
+      <input type="text" id="city${experienceCount}" name="city${experienceCount}" required><br>
+      
+      <label for="state${experienceCount}">State:<span class="required">*</span></label>
+      <input type="text" id="state${experienceCount}" name="state${experienceCount}" required><br>
+      
+      <label for="zip${experienceCount}">Zip:<span class="required">*</span></label>
+      <input type="text" id="zip${experienceCount}" name="zip${experienceCount}" required><br>
+      
+      <label for="phone${experienceCount}">Phone:<span class="required">*</span></label>
+      <input type="tel" id="phone${experienceCount}" name="phone${experienceCount}" required><br>
+      
+      <label for="supervisor${experienceCount}">Name of Last Supervisor:<span class="required">*</span></label>
+      <input type="text" id="supervisor${experienceCount}" name="supervisor${experienceCount}" required><br>
+      
+      <label for="jobTitle${experienceCount}">Your Last Job Title:<span class="required">*</span></label>
+      <input type="text" id="jobTitle${experienceCount}" name="jobTitle${experienceCount}" required><br>
+      
+      <label for="employmentDates${experienceCount}">Employment Dates (From - To):<span class="required">*</span></label>
+      <input type="text" id="employmentDates${experienceCount}" name="employmentDates${experienceCount}" required><br>
+      
+      <label for="paySalaryStart${experienceCount}">Pay or Salary Start:<span class="required">*</span></label>
+      <input type="text" id="paySalaryStart${experienceCount}" name="paySalaryStart${experienceCount}" required><br>
+      
+      <label for="paySalaryFinal${experienceCount}">Pay or Salary Final:<span class="required">*</span></label>
+      <input type="text" id="paySalaryFinal${experienceCount}" name="paySalaryFinal${experienceCount}" required><br>
+      
+      <label for="reasonForLeaving${experienceCount}">Specific Reason for Leaving:<span class="required">*</span></label>
+      <textarea id="reasonForLeaving${experienceCount}" name="reasonForLeaving${experienceCount}" rows="4" required></textarea><br>
+      
+      <label for="dutiesPerformed${experienceCount}">List of Duties Performed:<span class="required">*</span></label>
+      <textarea id="dutiesPerformed${experienceCount}" name="dutiesPerformed${experienceCount}" rows="4" required></textarea><br>
+      
+      <label for="skillsUsed${experienceCount}">Skills Used or Learned:<span class="required">*</span></label>
+      <textarea id="skillsUsed${experienceCount}" name="skillsUsed${experienceCount}" rows="4" required></textarea><br>
+      
+      <label for="advancements${experienceCount}">Advancements or Promotions:<span class="required">*</span></label>
+      <textarea id="advancements${experienceCount}" name="advancements${experienceCount}" rows="4" required></textarea><br>
+      
+      <label for="contactEmployer${experienceCount}">May we contact this employer?<span class="required">*</span></label>
+      <input type="radio" id="contactEmployerYes${experienceCount}" name="contactEmployer${experienceCount}" value="Yes">
+      <label for="contactEmployerYes${experienceCount}">Yes</label>
+      <input type="radio" id="contactEmployerNo${experienceCount}" name="contactEmployer${experienceCount}" value="No">
+      <label for="contactEmployerNo${experienceCount}">No</label><br>
+  `;
+
+  container.appendChild(newExperienceDiv);
+});
+
+
+
+
+
+document.getElementById("submitAllForms").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+
+    // Function to check if any form input is empty
+    function isFormEmpty(form) {
+        var inputs = form.querySelectorAll("input, select, textarea");
+        for (let input of inputs) {
+            if (input.type === "checkbox" || input.type === "radio") {
+                // For radio and checkbox, check if at least one is checked in the group
+                const name = input.name;
+                const group = form.querySelectorAll(`input[name="${name}"]`);
+                const isChecked = [...group].some(item => item.checked);
+                if (!isChecked) {
+                    alert(`Please fill out the ${name} field.`);
+                    return true;
+                }
+            } else if (input.value.trim() === "") {
+                // For other input types, check if the value is empty
+                alert(`Please fill out the ${input.name} field.`);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    
+    // Function to collect data from a form
+    function collectFormData(form) {
+        var inputs = form.querySelectorAll("input, select, textarea");
+        var formData = {};
+        inputs.forEach(function(input) {
+            if(input.type === "checkbox" || input.type === "radio") {
+                if(input.checked) {
+                    if (!formData[input.name]) formData[input.name] = [];
+                    formData[input.name].push(input.value);
+                }
+            } else {
+                formData[input.name] = input.value;
+            }
+        });
+        return formData;
+    }
+
+    // Reference to all forms to be checked
+    var forms = [document.getElementById("employmentForm"), document.getElementById("workExperienceForm"), document.getElementById("skillsForm"), document.getElementById("employmentFormSign")];
+
+    // Check each form for empty inputs
+    for (let form of forms) {
+        if (isFormEmpty(form)) {
+            return; // Stop the submission if any form is empty
+        }
+    }
+
+    // If no form is empty, collect all form data
+    var allFormData = {
+        employmentFormData: collectFormData(document.getElementById("employmentForm")),
+        workExperienceFormData: collectFormData(document.getElementById("workExperienceForm")),
+        skillsFormData: collectFormData(document.getElementById("skillsForm")),
+        employmentFormSignData: collectFormData(document.getElementById("employmentFormSign"))
+    };
+
+    // Logging collected form data to console (replace this part with your submission logic)
+    console.log("Collected Form Data:", allFormData);
+
+    // Example of an AJAX request using fetch API (uncomment and modify URL to use)
+    /*
+    fetch('your-server-endpoint', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(allFormData)
+    })
+    .then(response => response.json())
+    .then(data => console.log('Success:', data))
+    .catch((error) => console.error('Error:', error));
+    */
+});
+
+
+
+
+
+// Function to gather form data by form ID
+function gatherFormData(formId) {
+  const formData = {};
+  const form = document.getElementById(formId);
+  if (form) {
+    const inputs = form.querySelectorAll("input, select, textarea");
+    inputs.forEach(input => {
+      formData[input.name] = input.value;
+    });
+  }
+  return formData;
+}
+
+
+// Universal input validation function
+function validateInput(name, value) {
+    // Extend this function to include more specific validations based on the input name or type
+    if (name === 'date') {
+        // Validate date format YYYY-MM-DD
+        return /^\d{4}-\d{2}-\d{2}$/.test(value);
+    } else if (name === 'email') {
+        // Validate email format
+        return /^\S+@\S+\.\S+$/.test(value);
+    } else {
+        // General non-empty validation for other inputs
+        return value.length > 0;
+    }
+}
+
+function sanitizeInput(input) {
+    // Basic HTML sanitization to avoid XSS attacks
+    return input.replace(/<script.*?>.*?<\/script>/gi, '')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+}
+
+
+document.querySelectorAll('.menu a').forEach(item => {
+    item.addEventListener('mouseover', () => {
+        console.log('Mouse over:', item.textContent);
+    });
+});
+
+
+document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.menu ul').classList.toggle('active');
+        });
+
+    // Basic JavaScript to check the footer's load
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("Footer is ready and vibrant!");
+});
+
+
+
+
+
+
+</script>
+</body>
+</html>

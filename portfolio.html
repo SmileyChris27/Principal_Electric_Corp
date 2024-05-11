@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Recent Projects</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+     /* styles.css */
+   main {
+    flex: 1; /* Allow the main content to grow to fill the available space */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #555555; /* McDonald's yellow */
+    color: #000; /* Text color set to black for better readability */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+header {
+    background-color: #BC0A0F;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between; /* Keep items spaced at the edges */
+    align-items: center;
+    position: sticky; /* Make the header sticky */
+    top: 0; /* Stay at the top of the page */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Stay on top of other content */
+}
+
+.logo {
+    position: relative; /* Changed from absolute to relative */
+    z-index: 10; /* Ensure the logo is layered correctly */
+}
+
+.logo img {
+    width: 50px; /* Size of the logo */
+    cursor: pointer;
+    display: flex; /* Flex display to help with alignment */
+    align-items: center; /* Center vertically */
+}
+
+.menu {
+    display: flex;
+    width: 100%; /* Ensures menu uses full header width */
+    justify-content: center; /* Centers menu items */
+    position: relative; /* Aligns the menu within the header */
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Center the items in the menu */
+    align-items: center;
+    width: 100%;
+}
+
+.menu ul li {
+    color: #64ffda;
+    position: relative;
+    display: inline-block;
+    align-items: center;
+}
+
+.menu ul li a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    color: #ffcc00;
+    display: block;
+    padding: 5px 20px;
+}
+
+.menu ul li ul {
+    display: none;
+    position: absolute;
+    background-color: #282828;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    min-width: 150px;
+    z-index: 1;
+
+}
+
+.menu ul li:hover ul {
+    display: block;
+}
+
+.menu ul li ul li {
+    display: block;
+}
+
+.menu ul li a:hover, .menu ul li ul li a:hover {
+    background-color: #c8102e; /* Highlight links with McDonald's yellow on hover */
+    color: #000; /* Black text for contrast */
+    text-decoration: none; /* Remove underline to keep it clean */
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    width: 30px;
+    height: 25px;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: white;
+    border-radius: 3px;
+}
+
+.menu ul.active {
+    display: block;
+}
+
+.menu ul li a:hover, .menu ul li ul li a:hover {
+    text-decoration: underline;
+}
+
+
+
+   .project-description {
+      padding: 20px; /* Add padding for better spacing */
+      width: 50%; /* Adjust the width as needed */
+      margin: 0 auto; /* Center the div horizontally */
+	  color: white;
+    }
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 120px; /* Add bottom margin to prevent overlap with footer */
+    }
+
+.gallery img {
+    width: calc(33% - 22px); /* Adjust image width to allow for more whitespace around each image */
+    margin: 15px; /* Increase margin for more spacing */
+    cursor: pointer;
+    transition: transform 0.2s;
+    border: 3px solid gold;
+    object-fit: cover; /* Keeps the images' aspect ratios while filling the designated space */
+}
+
+
+
+    .gallery img:hover {
+      transform: scale(1.1);
+      border-color: green; /* Change border color to green on hover */
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      display: flex; /* Using flexbox */
+      justify-content: center; /* Centering content horizontally */
+      align-items: center; /* Centering content vertically */
+      flex-direction: column; /* Aligning items in a column */
+      background-color: #767676;
+      padding: 20px;
+      border: 1px solid gold;
+      width: 50%;
+      height: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+      color: gold;
+    }
+
+.modal-content img {
+  max-width: 100%; /* Ensure the image doesn't exceed the modal's width */
+  max-height: calc(100% - 100px); /* Adjust height to fit within the modal, considering padding and close button */
+  display: block; /* Ensure the image is treated as a block element */
+  margin: auto; /* Center the image horizontally */
+}
+
+    }
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 36px; /* Increase the font size for a larger close button */
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+    .modal-content img {
+      width: 50%; /* Full width of the modal content */
+      height: auto; /* Maintain aspect ratio */
+      display: block; /* Remove any extra space around the image */
+    }
+
+footer {
+background-color: grey; /* Dark background for contrast */
+    color: white;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    flex-shrink: 0; /* Prevent the footer from shrinking */
+    text-align: center; /* Center all text inside the footer */
+}
+
+footer {
+background-color: grey; /* Dark background for contrast */
+    color: white;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    flex-shrink: 0; /* Prevent the footer from shrinking */
+    text-align: center; /* Center all text inside the footer */
+}
+
+.footer-container {
+    background-color: grey; /* Red color matching the header */
+    display: flex;
+    justify-content: center; /* Center the footer contents horizontally */
+    align-items: center; /* Align the footer contents vertically */
+    text-align: center; /* Ensure text within each section is centered */
+    padding: 20px 0; /* Add some padding above and below the footer content */
+    flex-wrap: wrap; /* Allow footer items to wrap on smaller screens */
+    flex-direction: column; /* Stack child elements vertically */
+    align-items: center; /* Align items centrally */
+    justify-content: center; /* Center items horizontally */
+}
+
+.license-section, .contact-info {
+    margin: 10px 0; /* Add vertical margin */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center-align content */
+
+}
+
+.license-section h4, .contact-info h4, .social-media h4 {
+    color: #ffcc00; /* Gold color for headers */
+    margin-bottom: 10px;
+}
+
+.license-group h5 {
+    margin-top: 0;
+    color: #FFA500; /* Orange color for sub-headers */
+}
+
+.license-group p {
+    font-size: 12px; /* Smaller font for compact design */
+    margin: 3px 0;
+}
+
+.social-media a {
+    display: inline-block; /* Align icons in line */
+    margin: 0 5px; /* Space between icons */
+}
+
+.social-media a img {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
+
+.social-media {
+    display: flex; /* Use flexbox for horizontal alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    flex-wrap: nowrap; /* Prevent wrapping to a new line */
+}
+
+
+/* Media Queries for 34-inch Screen */
+@media screen and (min-width: 2560px) {
+
+
+    .project-description {
+        width: 30%; /* Larger width for project descriptions to utilize more space */
+        padding: 40px; /* More padding for better presentation */
+    }
+    .gallery img {
+        width: calc(25% - 30px); /* Larger images in gallery, shown in a 4-column layout */
+        margin: 15px; /* Increased margin for more space between images */
+    }
+
+    .modal-content {
+        width: 60%; /* Larger modal content */
+        height: 70%; /* Larger modal to accommodate more content */
+        padding: 40px; /* More padding inside the modal */
+    }
+
+    .modal-content img {
+        max-height: calc(100% - 150px); /* More space for modal content around the image */
+    }
+
+    
+
+}
+
+
+
+    /* Media Queries */
+    @media screen and (max-width: 1024px) {
+      /* Adjustments for tablets and below */
+      .text-overlay h1, .text-overlay h2, .text-overlay h3, .text-overlay p {
+        font-size: calc(16px + 0.9vw); /* Adjusted base font size for smaller devices */
+    }
+     header, .menu ul {
+        flex-direction: column;
+    }
+
+    .menu ul li {
+        width: 100%; 
+    }
+
+    .menu ul li a {
+        padding: 10px;
+    }
+    .menu ul li {
+        text-align: center; /* Center align menu items */
+    }
+}
+
+    @media screen and (max-width: 768px) {
+      /* Adjustments for small tablets and large phones */
+.text-overlay h1, .text-overlay h2, .text-overlay h3, .text-overlay p {
+        font-size: calc(14px + 0.8vw); /* Further reduced font size for tablets */
+    }
+
+.menu ul {
+        display: none;
+        position: absolute;
+        background-color: #c8102e;
+        right: 0;
+        left: 0;
+        top: 50px;
+        width: 100%;
+        flex-direction: column;
+    }
+    .menu ul li {
+        display: block;
+        text-align: center;
+    }
+    .menu ul li a {
+        padding: 12px 20px;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+    header {
+        justify-content: space-between; /* Ensures the logo and menu toggle are on opposite ends */
+    }
+    .logo {
+        flex: 1 0 auto; /* Allows logo to grow as needed but not shrink */
+    }
+    .menu ul.active {
+        display: flex; /* Changed from block to flex to handle vertical alignment */
+        flex-direction: column; /* Ensures menu items are stacked vertically */
+    }
+    .menu-toggle {
+        display: flex;
+    }
+
+      .gallery img {
+        width: calc(50% - 20px); /* Display two images per row */
+      }
+    }
+
+    @media (max-width: 600px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+	
+	    @media (max-width: 380px) {
+      /* Adjustments for small devices */
+    .text-overlay h1, .text-overlay h2, .text-overlay h3, .text-overlay p {
+        font-size: calc(12px + 0.5vw); /* Smaller font size for mobile phones */
+    }
+    .box {
+        width: calc(100% - 20px);
+    }
+      
+    header {
+        flex-direction: row; /* Ensures items are in a row for better alignment */
+        justify-content: space-between; /* Spaces items optimally */
+        padding: 10px 20px; /* Adds padding for aesthetics */
+    }
+        header, .menu ul {
+        flex-direction: column;
+    }
+}
+
+
+
+	@media screen and (max-width: 360px) {
+    .text-overlay h1, .text-overlay h2, .text-overlay h3, .text-overlay p {
+        font-size: calc(10px + 2.5vw); /* Even smaller responsive font size for very small screens */
+    }
+}
+
+
+
+
+
+    @media (max-width: 180px) {
+      /* Adjustments for very small devices */
+      .project-description {
+        width: 90%; /* Adjusting width for smaller devices */
+      }
+      .gallery {
+        display: block; /* Change to block layout for better stacking on small screens */
+      }
+      .gallery img {
+        width: calc(100% - 20px); /* Display one image per row */
+      }
+      .modal-content img {
+        width: 90%; /* Adjusting image width for small devices */
+      }
+      footer {
+        position: fixed; /* Fix the footer position */
+        bottom: 0; /* Align footer to the bottom of the viewport */
+        width: 100%; /* Full width */
+        z-index: 1000; /* Ensure footer appears above other content */
+      }
+    }
+
+</style>
+
+
+
+    <header>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="menu">
+            <ul>
+                <center>
+                <li class="logo"><a href="home.html"><img src="electrical3.png" alt="Logo"></a></li>
+            </center>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li>
+                    <a href="careers.html">Careers</a>
+                    <ul>
+                        <li><a href="career_application.html">Career Application</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li>
+                    <a href="services.html">Services</a>
+                    <ul>
+                    <a href="#industrial">COMMERCIAL</a>
+                    <a href="#commercial">INDUSTRIAL</a>
+                    <a href="#residential">RESIDENTIAL</a>  
+                    </ul>
+                </li>
+                <li><a href="service_areas.html">Service Areas</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+
+<body>
+    <div class="project-description">
+    <center>
+        <h1 style="font-family: 'Sofia', cursive;">Principal Electric Corp Projects</h1>
+        <p>Principal Electric Corp takes immense pride in showcasing its finest project portfolios, each a testament to our unwavering commitment to excellence in electrical engineering and construction. With a blend of innovation, precision, and expertise, our projects stand as beacons of quality and reliability in the industry. From intricate industrial installations to sophisticated residential solutions, each endeavor reflects our dedication to meeting and exceeding client expectations. Explore our gallery to witness firsthand the craftsmanship and ingenuity that define Principal Electric Corp's legacy of success.</p>
+    </center>
+</div>
+
+
+    <div class="gallery">
+        <img src="IMG_2387.jpg" alt="Project 1" onclick="openModal('Modal1', 'IMG_2387.jpg', 'Project 1')">
+        <img src="IMG_5582.jpg" alt="Project 2" onclick="openModal('Modal2', 'IMG_5582.jpg', 'Project 2')">
+        <img src="IMG_5612.jpg" alt="Project 3" onclick="openModal('Modal3', 'IMG_5612.jpg', 'Project 3')">
+        <img src="IMG_7855.jpg" alt="Project 4" onclick="openModal('Modal4', 'IMG_7855.jpg', 'Project 4')">
+        <img src="IMG_7858.jpg" alt="Project 5" onclick="openModal('Modal5', 'IMG_7858.jpg', 'Project 5')">
+        <img src="IMG_7054.jpg" alt="Project 6" onclick="openModal('Modal6', 'IMG_7054.jpg', 'Project 6')">
+        <img src="IMG_8248.jpg" alt="Project 7" onclick="openModal('Modal7', 'IMG_8248.jpg', 'Project 7')">
+        <img src="IMG_8335.jpg" alt="Project 8" onclick="openModal('Modal8', 'IMG_8335.jpg', 'Project 8')">
+        <img src="IMG_4508.jpg" alt="Project 9" onclick="openModal('Modal9', 'IMG_4508.jpg', 'Project 9')">
+        <img src="Panel1.jpg" alt="Project 10" onclick="openModal('Modal10', 'Panel1.jpg', 'Project 10')">
+        <img src="PanelResidential.jpg" alt="Project 11" onclick="openModal('Modal11', 'PanelResidential.jpg', 'Project 11')">
+        <img src="IMG_9311.jpg" alt="Project 12" onclick="openModal('Modal12', 'IMG_9311.jpg', 'Project 12')">
+    </div>
+
+    <!-- Modal for Project 1 -->
+    <div id="Modal1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('Modal1')">&times;</span>
+            <img src="" alt="" id="modalImg1">
+            <h2>Project 1</h2>
+            <p>This project involves...</p>
+        </div>
+    </div>
+
+    <!-- Modal for Project 2 -->
+    <div id="Modal2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('Modal2')">&times;</span>
+            <img src="" alt="" id="modalImg2">
+            <h2>Project 2 Before</h2>
+            <p>This project focuses on uninstalling a Panel Board</p>
+        </div>
+    </div>
+
+    <!-- Modal for Project 3 -->
+    <div id="Modal3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('Modal3')">&times;</span>
+            <img src="" alt="" id="modalImg3">
+            <h2>Project 2 After</h2>
+            <p>This Project focuses on installing the Panel Board</p>
+        </div>
+    </div>
+
+
+     <div id="Modal4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('Modal4')">&times;</span>
+            <img src="" alt="" id="modalImg4">
+            <h2>Project 4</h2>
+            <p>For this project, we...</p>
+        </div>
+    </div>
+    
+    <div id="Modal5" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('Modal5')">&times;</span>
+            <img src="" alt="" id="modalImg5">
+            <h2>Project 5</h2>
+            <p>For this project, we...</p>
+        </div>
+    </div>
+
+    <div id="Modal6" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('Modal6')">&times;</span>
+            <img src="" alt="" id="modalImg6">
+            <h2>Project 6</h2>
+            <p>For this project, we...</p>
+        </div>
+    </div>
+
+    <div id="Modal7" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('Modal7')">&times;</span>
+            <img src="" alt="" id="modalImg7">
+            <h2>Project 7</h2>
+            <p>For this project, we...</p>
+        </div>
+    </div>
+
+    <div id="Modal8" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('Modal8')">&times;</span>
+            <img src="" alt="" id="modalImg8">
+            <h2>Project 8</h2>
+            <p>For this project, we...</p>
+        </div>
+    </div>
+
+    <div id="Modal9" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('Modal9')">&times;</span>
+            <img src="" alt="" id="modalImg9">
+            <h2>Project 9</h2>
+            <p>For this project, we...</p>
+        </div>
+    </div>
+
+    <div id="Modal10" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('Modal10')">&times;</span>
+            <img src="" alt="" id="modalImg10">
+            <h2>Project 10</h2>
+            <p>For this project, we...</p>
+        </div>
+    </div>
+
+    <div id="Modal11" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('Modal11')">&times;</span>
+            <img src="" alt="" id="modalImg11">
+            <h2>Project 11</h2>
+            <p>For this project, we...</p>
+        </div>
+    </div>
+
+    <div id="Modal12" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('Modal12')">&times;</span>
+            <img src="" alt="" id="modalImg12">
+            <h2>Project 12</h2>
+            <p>For this project, we...</p>
+        </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+<footer>
+    <div class="footer-container">
+        <div class="license-section">
+            <h4>Licenses & Certifications</h4>
+            <div class="license-group">
+                <h5>License Company Principal Electric Corp</h5>
+                <p>CA: #167951, CT: #ELC.0203639-E1, NC: #U.34073</p>
+                <p>NJ: #34EI01857600, NY: #13041</p>
+            </div>
+            <div class="license-group">
+                <h5>Local Areas Covered</h5>
+                <p>Inc. Village of Freeport: E-8879, Inc. Village of Hempstead: LIC# 775, Inc. Village of Mineola: LIC# 15787, Orange County: #764</p>
+                <p>Putnam County: 10381, Rockland County: #E-614, Suffolk County: ME-60166</p>
+                <p>Sullivan County: M-522, Town of Hempstead: LIC# 2784, Town of North Hempstead: ME18-220149, Westchester County: 1874</p>
+
+            </div>
+        </div>
+
+        <div class="social-media">
+            <h4>Connect with Us</h4>
+            <a href="https://www.facebook.com/" target="_blank"><img src="Facebook_Logo.png" alt="Facebook"></a>
+            <a href="https://twitter.com/" target="_blank"><img src="X_Logo.png" alt="Twitter"></a>
+            <a href="https://www.instagram.com" target="_blank"><img src="instagram_logo.png" alt="Instagram"></a>
+            <!-- Add other social media links as needed -->
+        </div>
+        <div class="social-media">
+            <h4>Connect with Our Partners</h4>
+            <a href="https://www.osha.gov" target="_blank"><img src="osha_logo.png" alt="OSHA"></a>
+            <a href="https://www.nema.org" target="_blank"><img src="nema.png" alt="NEMA"></a>
+            <a href="https://www.nfpa.org" target="_blank"><img src="nfpa_logo.png" alt="NFPA"></a>
+        </div>
+    </div>
+    <div class="copyright">
+      <center>
+        <p>© 2024 Principal Electric Corp. All rights reserved.</p>
+      </center>
+    </div>
+</footer>
+<script src="script.js"></script>
+
+
+
+
+
+<script>
+    
+function openModal(modalId, imgSrc, altText) {
+    var modal = document.getElementById(modalId);
+    var modalImg = modal.querySelector('img');
+    modalImg.src = imgSrc;
+    modalImg.alt = altText;
+    modal.style.display = 'block';
+}
+
+function closeModal(modalId) {
+    var modal = document.getElementById(modalId);
+    modal.style.display = 'none';
+}
+
+window.onclick = function(event) {
+    if (event.target.className === 'modal') {
+        event.target.style.display = 'none';
+    }
+}
+
+    document.querySelectorAll('.menu a').forEach(item => {
+    item.addEventListener('mouseover', () => {
+        console.log('Mouse over:', item.textContent);
+    });
+});
+
+document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.menu ul').classList.toggle('active');
+        });
+
+    // Basic JavaScript to check the footer's load
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("Footer is ready and vibrant!");
+});
+
+
+</script>
+
+
+</html>

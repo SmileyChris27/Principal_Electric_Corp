@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <title>Principal Electric Corp Testimonials</title>
+  <style>
+        /* styles.css */
+   main {
+    flex: 1; /* Allow the main content to grow to fill the available space */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #555555; /* McDonald's yellow */
+    color: #000; /* Text color set to black for better readability */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+header {
+    background-color: #BC0A0F;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between; /* Keep items spaced at the edges */
+    align-items: center;
+    position: sticky; /* Make the header sticky */
+    top: 0; /* Stay at the top of the page */
+    width: 100%; /* Full width */
+    z-index: 1000; /* Stay on top of other content */
+}
+
+.logo {
+    position: relative; /* Changed from absolute to relative */
+    z-index: 10; /* Ensure the logo is layered correctly */
+}
+
+.logo img {
+    width: 50px; /* Size of the logo */
+    cursor: pointer;
+    display: flex; /* Flex display to help with alignment */
+    align-items: center; /* Center vertically */
+}
+
+.menu {
+    display: flex;
+    width: 100%; /* Ensures menu uses full header width */
+    justify-content: center; /* Centers menu items */
+    position: relative; /* Aligns the menu within the header */
+    justify-content: space-around;
+    align-items: center;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Center the items in the menu */
+    align-items: center;
+    width: 100%;
+}
+
+.menu ul li {
+    color: #64ffda;
+    position: relative;
+    display: inline-block;
+    align-items: center;
+}
+
+.menu ul li a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+    color: #ffcc00;
+    display: block;
+    padding: 5px 20px;
+}
+
+.menu ul li ul {
+    display: none;
+    position: absolute;
+    background-color: #282828;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    min-width: 150px;
+    z-index: 1;
+
+}
+
+.menu ul li:hover ul {
+    display: block;
+}
+
+.menu ul li ul li {
+    display: block;
+}
+
+.menu ul li a:hover, .menu ul li ul li a:hover {
+    background-color: #c8102e; /* Highlight links with McDonald's yellow on hover */
+    color: #000; /* Black text for contrast */
+    text-decoration: none; /* Remove underline to keep it clean */
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    width: 30px;
+    height: 25px;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: white;
+    border-radius: 3px;
+}
+
+.menu ul.active {
+    display: block;
+}
+
+.menu ul li a:hover, .menu ul li ul li a:hover {
+    text-decoration: underline;
+}
+                      
+}
+
+.menu ul li a:hover, .menu ul li ul li a:hover {
+    background-color: #c8102e; /* Highlight links with McDonald's yellow on hover */
+    color: #000; /* Black text for contrast */
+    text-decoration: none; /* Remove underline to keep it clean */
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    width: 30px;
+    height: 25px;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: white;
+    border-radius: 3px;
+}
+
+.menu ul.active {
+    display: block;
+}
+
+
+.menu ul li a:hover, .menu ul li ul li a:hover {
+    text-decoration: underline;
+}
+
+  .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #767676;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      color: white;
+    }
+    .testimonial {
+      border-left: 5px solid gold;
+      padding-left: 15px;
+      margin-bottom: 20px;
+    }
+    .testimonial p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .testimonial .author {
+      margin-top: 10px;
+      font-style: italic;
+      color: gold;
+    }
+    .testimonial .type {
+      font-weight: bold;
+      color: gold;
+    }
+
+footer {
+background-color: grey; /* Dark background for contrast */
+    color: white;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    flex-shrink: 0; /* Prevent the footer from shrinking */
+    text-align: center; /* Center all text inside the footer */
+}
+
+.footer-container {
+    background-color: grey; /* Red color matching the header */
+    display: flex;
+    justify-content: center; /* Center the footer contents horizontally */
+    align-items: center; /* Align the footer contents vertically */
+    text-align: center; /* Ensure text within each section is centered */
+    padding: 20px 0; /* Add some padding above and below the footer content */
+    flex-wrap: wrap; /* Allow footer items to wrap on smaller screens */
+    flex-direction: column; /* Stack child elements vertically */
+    align-items: center; /* Align items centrally */
+    justify-content: center; /* Center items horizontally */
+}
+
+.license-section, .contact-info {
+    margin: 10px 0; /* Add vertical margin */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center-align content */
+
+}
+
+.license-section h4, .contact-info h4, .social-media h4 {
+    color: #ffcc00; /* Gold color for headers */
+    margin-bottom: 10px;
+}
+
+.license-group h5 {
+    margin-top: 0;
+    color: #FFA500; /* Orange color for sub-headers */
+}
+
+.license-group p {
+    font-size: 12px; /* Smaller font for compact design */
+    margin: 3px 0;
+}
+
+.social-media a {
+    display: inline-block; /* Align icons in line */
+    margin: 0 5px; /* Space between icons */
+}
+
+.social-media a img {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
+
+.social-media {
+    display: flex; /* Use flexbox for horizontal alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    flex-wrap: nowrap; /* Prevent wrapping to a new line */
+}
+
+    /* Media Queries */
+    @media screen and (max-width: 1024px) {
+      /* Adjustments for tablets and below */
+	  .text-overlay h1, .text-overlay h2, .text-overlay h3, .text-overlay p {
+        font-size: calc(16px + 0.9vw); /* Adjusted base font size for smaller devices */
+    }
+      .menu ul li a {
+        padding: 10px;
+      }
+      .logo img {
+        width: 40px; /* Smaller logo on smaller screens */
+      }
+       header, .menu ul {
+        flex-direction: column;
+    }
+    .menu ul li {
+        width: 100%; 
+    }
+    .menu ul li {
+        text-align: center; /* Center align menu items */
+    }
+}
+
+    @media screen and (max-width: 768px) {
+      /* Adjustments for small tablets and large phones */
+.menu ul {
+        display: none;
+        position: absolute;
+        background-color: #c8102e;
+        right: 0;
+        left: 0;
+        top: 50px;
+        width: 100%;
+        flex-direction: column;
+    }
+    .menu ul li {
+        display: block;
+        text-align: center;
+    }
+    .menu ul li a {
+        padding: 12px 20px;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+    header {
+        justify-content: space-between; /* Ensures the logo and menu toggle are on opposite ends */
+    }
+    .logo {
+        flex: 1 0 auto; /* Allows logo to grow as needed but not shrink */
+    }
+    .menu ul.active {
+        display: flex; /* Changed from block to flex to handle vertical alignment */
+        flex-direction: column; /* Ensures menu items are stacked vertically */
+    }
+    .menu-toggle {
+        display: flex;
+    }
+      #about video {
+        width: 100%; /* Full width on smaller devices */
+        height: auto; /* Adjust height automatically */
+      }
+    }
+
+
+
+  @media (max-width: 600px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+
+
+
+    @media (max-width: 480px) {
+      /* Adjustments for small devices */
+      .text-overlay h1, .text-overlay h2, .text-overlay h3, .text-overlay p {
+        font-size: 1em;
+      }
+      .box {
+        width: calc(100% - 20px);
+      }
+      #about video {
+        width: 100%; /* Full width on very small devices */
+        height: auto; /* Adjust height automatically */
+      }
+      header {
+        flex-direction: row; /* Ensures items are in a row for better alignment */
+        justify-content: space-between; /* Spaces items optimally */
+        padding: 10px 20px; /* Adds padding for aesthetics */
+    }
+    header, .menu ul {
+        flex-direction: column;
+    }
+    }
+	
+	@media screen and (max-width: 360px) {
+    .text-overlay h1, .text-overlay h2, .text-overlay h3, .text-overlay p {
+        font-size: calc(10px + 2.5vw); /* Even smaller responsive font size for very small screens */
+    }
+}
+
+</style>
+</head>
+<body>
+
+
+
+
+
+   <header>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav class="menu">
+            <ul>
+                <center>
+                <li class="logo"><a href="home.html"><img src="electrical3.png" alt="Logo"></a></li>
+            </center>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li>
+                    <a href="careers.html">Careers</a>
+                    <ul>
+                        <li><a href="career_application.html">Career Application</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li>
+                    <a href="services.html">Services</a>
+                    <ul>
+                    <a href="#industrial">COMMERCIAL</a>
+                    <a href="#commercial">INDUSTRIAL</a>
+                    <a href="#residential">RESIDENTIAL</a>  
+                    </ul>
+                </li>
+                <li><a href="service_areas.html">Service Areas</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+<div class="container">
+    <div class="testimonial">
+      <p>"Principal Electric Corp completely revamped our industrial facility's electrical system, improving efficiency and safety. Their team's attention to detail and adherence to deadlines were impressive."</p>
+      <p class="author">- Thomas Richardson, Industrial Plant Manager</p>
+      <p class="type">Industrial</p>
+    </div>
+    <div class="testimonial">
+      <p>"As a business owner, I rely heavily on a reliable electrical system. Principal Electric Corp not only provided top-notch electrical services for my commercial building but also offered valuable insights for future upgrades."</p>
+      <p class="author">- Sarah Johnson, Commercial Property Owner</p>
+      <p class="type">Commercial</p>
+    </div>
+    <div class="testimonial">
+      <p>"Principal Electric Corp transformed our home with their exceptional residential electrical work. From installing smart home features to ensuring electrical safety, they exceeded our expectations in every aspect."</p>
+      <p class="author">- Michael and Emily Smith, Homeowners</p>
+      <p class="type">Residential</p>
+    </div>
+    <div class="testimonial">
+      <p>"Our industrial facility faced a critical electrical issue, and Principal Electric Corp responded promptly, resolving the issue efficiently. Their quick response saved us from significant downtime and losses."</p>
+      <p class="author">- Samantha Clark, Operations Manager</p>
+      <p class="type">Industrial</p>
+    </div>
+    <div class="testimonial">
+      <p>"Principal Electric Corp's commercial electrical services not only met but exceeded our expectations. Their team's professionalism and dedication ensured minimal disruption to our business operations during the project."</p>
+      <p class="author">- David Martinez, Business Owner</p>
+      <p class="type">Commercial</p>
+    </div>
+  </div>
+
+
+<footer>
+    <div class="footer-container">
+        <div class="license-section">
+            <h4>Licenses & Certifications</h4>
+            <div class="license-group">
+                <h5>License Company Principal Electric Corp</h5>
+                <p>CA: #167951, CT: #ELC.0203639-E1, NC: #U.34073</p>
+                <p>NJ: #34EI01857600, NY: #13041</p>
+            </div>
+            <div class="license-group">
+                 <h5>Local Areas Covered</h5>
+                <p>Inc. Village of Freeport: E-8879, Inc. Village of Hempstead: LIC# 775, Inc. Village of Mineola: LIC# 15787, Orange County: #764</p>
+                <p>Putnam County: 10381, Rockland County: #E-614, Suffolk County: ME-60166</p>
+                <p>Sullivan County: M-522, Town of Hempstead: LIC# 2784, Town of North Hempstead: ME18-220149, Westchester County: 1874</p>
+            </div>
+        </div>
+
+        <div class="social-media">
+            <h4>Connect with Us</h4>
+            <a href="https://www.facebook.com/" target="_blank"><img src="Facebook_Logo.png" alt="Facebook"></a>
+            <a href="https://twitter.com/" target="_blank"><img src="X_Logo.png" alt="Twitter"></a>
+            <a href="https://www.instagram.com" target="_blank"><img src="instagram_logo.png" alt="Instagram"></a>
+            <!-- Add other social media links as needed -->
+        </div>
+        <div class="social-media">
+            <h4>Connect with Our Partners</h4>
+            <a href="https://www.osha.gov" target="_blank"><img src="osha_logo.png" alt="OSHA"></a>
+            <a href="https://www.nema.org" target="_blank"><img src="nema.png" alt="NEMA"></a>
+            <a href="https://www.nfpa.org" target="_blank"><img src="nfpa_logo.png" alt="NFPA"></a>
+        </div>
+    </div>
+    <div class="copyright">
+      <center>
+        <p>© 2024 Principal Electric Corp. All rights reserved.</p>
+      </center>
+    </div>
+</footer>
+<script src="script.js"></script>
+
+
+
+
+
+
+
+
+
+  <script>
+    document.querySelectorAll('.menu a').forEach(item => {
+    item.addEventListener('mouseover', () => {
+        console.log('Mouse over:', item.textContent);
+    });
+});
+
+document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.menu ul').classList.toggle('active');
+        });
+
+    // Basic JavaScript to check the footer's load
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("Footer is ready and vibrant!");
+});
+  </script>
+</body>
+</html>
